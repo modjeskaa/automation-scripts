@@ -1,27 +1,29 @@
 import os
 
-base_path = r'C:\Users\AgataPC\Desktop\projekciki\DATA_SCIENCE'
+def create_folders():
+    input_path = input("Folder destination:\n(for example: C:\\Users\\AgataPC\\DesC:\ktop)\n")
+    base_path = input_path.replace("\\", "\\\\")
 
-#                   CREATE X NUMBER OF FOLDERS
-# num_folders = 4
-# folder_list = [f"folder_{i}" for i in range(1, num_folders + 1)]
+    choice = int(input("1. Create x number of folders\n2. Create folders with names\nEnter 1 or 2: "))
 
-# for folder_name in folder_list:
-#     folder_path = os.path.join(base_path, folder_name)
-#     os.mkdir(folder_path)
+    if choice == 1:
+        num_folders = int(input("Number of folders to create: "))
+        folder_list = [f"folder_{i}" for i in range(1, num_folders + 1)]
 
+        for folder_name in folder_list:
+            folder_path = os.path.join(base_path, folder_name)
+            os.mkdir(folder_path)
+        
+        print("Folders created")
 
-#                   CREATE FOLDERS WITH NAMES
-# folders_names = [
-#     "1 Regression",
-#     "2 Classification", 
-#     "3 Clustering",
-#     "4 Deep Learning"
-# ]
+    elif choice == 2:
+        folder_names_input = input("Folder names (comma-separated): ")
+        folder_names = [name.strip() for name in folder_names_input.split(',')]
 
-# for folder_name in folders_names:
-#     folder_path = os.path.join(base_path, folder_name)
-#     os.makedirs(folder_path, exist_ok=True)
+        for folder_name in folder_names:
+            folder_path = os.path.join(base_path, folder_name)
+            os.makedirs(folder_path, exist_ok=True)
+        
+        print("Folders created")
 
-
-
+create_folders()
