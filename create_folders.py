@@ -1,7 +1,7 @@
 import os
 
 def create_folders():
-    input_path = input("Folder destination:\n(for example: C:\\Users\\AgataPC\\DesC:\ktop)\n")
+    input_path = input("Folder destination:\n(for example: C:\\Users\\[user]\\Desktop)\n")
     base_path = input_path.replace("\\", "\\\\")
 
     choice = int(input("1. Create x number of folders\n2. Create folders with names\nEnter 1 or 2: "))
